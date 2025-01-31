@@ -4,6 +4,13 @@
 
 library(here)
 
+# Load data --------------------------------------------------------------------
+
+# Example data
+df_ex <- read.table(here("day1/example.txt"), header = FALSE)
+# Input data
+df <- read.table(here("day1/data.txt"), header = FALSE)
+
 # PART 1 -----------------------------------------------------------------------
 
 # Sort two lists. Find the total distance between pairs of numbers in the sorted 
@@ -11,16 +18,12 @@ library(here)
 
 ## Example data ----------------------------------------------------------------
 
-df_ex <- read.table(here("day1/example.txt"), header = FALSE)
-
 V1_ex <- sort(df_ex$V1)
 V2_ex <- sort(df_ex$V2)
 
 sum(abs(V1_ex - V2_ex))
 
-## Test data -------------------------------------------------------------------
-
-df <- read.table(here("day1/data.txt"), header = FALSE)
+## Input data ------------------------------------------------------------------
 
 # Quick solution
 V1 <- sort(df$V1)
@@ -56,7 +59,8 @@ colnames(sorted_ex) <- c("left", "right", "distances")
 
 # Multiplication factor / frequency, number of times a number from the left list 
 # appears in the right list.
-freq_ex <- table(sorted_ex$right)[as.character(sorted_ex$left[sorted_ex$left %in% sorted_ex$right])]
+left_in_right_ex <- as.character(sorted_ex$left[sorted_ex$left %in% sorted_ex$right])
+freq_ex <- table(sorted_ex$right)[left_in_right_ex]
 
 # Note NA values occur where number does not appear in list 2. 
 sorted_ex$freq <- freq_ex[as.character(sorted_ex$left)]
@@ -66,16 +70,14 @@ sorted_ex$sim_score <- sorted_ex$left * sorted_ex$freq
 
 sum(sorted_ex$sim_score, na.rm = TRUE)
 
-## Test data -------------------------------------------------------------------
-
-left <- V1
-right <- V2
+## Input data ------------------------------------------------------------------
 
 colnames(sorted) <- c("left", "right", "distances")
 
 # Multiplication factor / frequency, number of times a number from the left list 
 # appears in the right list.
-freq <- table(sorted$right)[as.character(sorted$left[sorted$left %in% sorted$right])]
+left_in_right <- as.character(sorted$left[sorted$left %in% sorted$right])
+freq <- table(sorted$right)[left_in_right]
 
 # Add frequencies into data frame in correct locations. 
 sorted$freq <- freq[as.character(sorted$left)]
