@@ -1,4 +1,4 @@
-# Advent of Code 2024
+# Advent of Code 2024: Day 1. 
 # Amelia Dunstone
 # 2025-01-30
 
