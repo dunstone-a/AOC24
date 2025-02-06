@@ -38,7 +38,7 @@ right_arg <- as.numeric(sapply(x_split, FUN = "[", 3))
 
 sum(left_arg*right_arg)
 
-## Same code as the function ---------------------------------------------------
+## Function version of code above ----------------------------------------------
 
 multiply_mul_phrases <- function(data) {
     
