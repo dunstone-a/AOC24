@@ -21,7 +21,7 @@ data <- readr::read_file(here("day3/data.txt"))
 # Split the string whenever there is exactly "mul"
 x <- unlist(strsplit(data, "mul"))
 
-# Search for occurrences that begin with a bracket, 1-3 digits, a common, 1-3 digits, 
+# Search for occurrences that begin with a bracket, 1-3 digits, a comma, 1-3 digits, 
 # and a close bracket. 
 x_filt <- grep(pattern = "^\\([0-9]{1,3},[0-9]{1,3}\\)", x = x, value = TRUE)
 
@@ -45,7 +45,7 @@ multiply_mul_phrases <- function(data) {
     # Split the string whenever there is exactly "mul"
     x <- unlist(strsplit(data, "mul"))
     
-    # Search for occurrences that begin with a bracket, 1-3 digits, a common, 1-3 digits, 
+    # Search for occurrences that begin with a bracket, 1-3 digits, a comma, 1-3 digits, 
     # and a close bracket. 
     x_filt <- grep(pattern = "^\\([0-9]{1,3},[0-9]{1,3}\\)", x = x, value = TRUE)
     
@@ -123,7 +123,6 @@ which(!grepl("^n't\\(\\)", x) & !grepl("^\\(\\)", x))
 x_filt <- x[keep]
 
 multiply_mul_phrases(glue::glue_collapse(x_filt))
-
 
 # Function to multiply the numbers in mul(a,b) but subject to actions given
 # by do() and don't() commands in the string.
