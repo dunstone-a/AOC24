@@ -93,7 +93,7 @@ xmas_search <- function(data) {
     
     # Count number of vertical occurrences. 
     count_v <- count_vertical(data_mat)
-    print(paste0("Horizontal: ", count_h))
+    print(paste0("Vertical: ", count_v))
     
     # Count number of diagonal occurrences.
     count_d <- count_diagonal(data_mat)
@@ -103,13 +103,13 @@ xmas_search <- function(data) {
 
 xmas_search(ex)
 # [1] "Horizontal: 5"
-# [1] "Horizontal: 5"
+# [1] "Vertical: 3"
 # [1] "Diagonal up: 5"
 # [1] "Diagonal down: 5"
 # [1] "Total: 18"
 xmas_search(data)
 # [1] "Horizontal: 432"
-# [1] "Horizontal: 432"
+# [1] "Vertical: 428"
 # [1] "Diagonal up: 830"
 # [1] "Diagonal down: 840"
 # [1] "Total: 2530"
